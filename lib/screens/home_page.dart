@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         } else if (state is CounterReset) {
           teamAPoint = 0;
           teamBPoint = 0;
-          setState(() {}); // نعمل تحديث للواجهة
+          setState(() {}); 
         }
       },
       builder: (context, state) {
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(child: TeamAView()),
+                        Expanded(child: teamAView()),
                         const VerticalDivider(
                           color: Colors.black,
                           thickness: 1,
@@ -48,12 +48,12 @@ class _HomePageState extends State<HomePage> {
                           endIndent: 50,
                           width: 40,
                         ),
-                        Expanded(child: TeamBView()),
+                        Expanded(child: teamBView()),
                       ],
                     ),
                   ),
                   const SizedBox(height: 80),
-                  ResetButton(),
+                  resetButton(),
                 ],
               ),
             ),
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // ✅ Reset Button
-  ElevatedButton ResetButton() {
+  ElevatedButton resetButton() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
       onPressed: () {
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // ✅ Team A View
-  Column TeamAView() {
+  Column teamAView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // ✅ Team B View
-  Column TeamBView() {
+  Column teamBView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
