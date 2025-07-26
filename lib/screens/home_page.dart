@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Category extends StatefulWidget {
-  const Category({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<Category> createState() => _CategoryState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _CategoryState extends State<Category> {
-  int teamAPoint = 0;
-  int teamBPoint = 0;
-
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +47,7 @@ class _CategoryState extends State<Category> {
   ElevatedButton ResetButton() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-      onPressed: () {
-        setState(() {
-          teamAPoint = 0;
-          teamBPoint = 0;
-        });
-      },
+      onPressed: () {},
       child: const Text(
         'Reset',
         style: TextStyle(
@@ -79,7 +71,7 @@ class _CategoryState extends State<Category> {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            '$teamAPoint',
+            '0',
             style: const TextStyle(fontSize: 200, fontWeight: FontWeight.w400),
           ),
         ),
@@ -100,7 +92,7 @@ class _CategoryState extends State<Category> {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            '$teamBPoint',
+            '0',
             style: const TextStyle(fontSize: 200, fontWeight: FontWeight.w400),
           ),
         ),
@@ -114,28 +106,12 @@ class _CategoryState extends State<Category> {
     return [
       ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-        onPressed: () {
-          setState(() {
-            if (isTeamA) {
-              teamAPoint += 1;
-            } else {
-              teamBPoint += 1;
-            }
-          });
-        },
+        onPressed: () {},
         child: const Text('Add 1 Point', style: TextStyle(color: Colors.black)),
       ),
       ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-        onPressed: () {
-          setState(() {
-            if (isTeamA) {
-              teamAPoint += 2;
-            } else {
-              teamBPoint += 2;
-            }
-          });
-        },
+        onPressed: () {},
         child: const Text('Add 2 Point', style: TextStyle(color: Colors.black)),
       ),
       ElevatedButton(
@@ -143,10 +119,7 @@ class _CategoryState extends State<Category> {
         onPressed: () {
           setState(() {
             if (isTeamA) {
-              teamAPoint += 3;
-            } else {
-              teamBPoint += 3;
-            }
+            } else {}
           });
         },
         child: const Text('Add 3 Point', style: TextStyle(color: Colors.black)),
