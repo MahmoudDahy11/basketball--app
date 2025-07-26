@@ -14,4 +14,11 @@ class CounterCubit extends Cubit<CounterState> {
       emit(CounterBIncrements());
     }
   }
+
+  void counterReset() {
+    teamAPoint = 0;
+
+    teamBPoint = 0;
+    emit(CounterReset());
+  }
 }

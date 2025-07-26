@@ -19,8 +19,12 @@ class _HomePageState extends State<HomePage> {
       listener: (context, state) {
         if (state is CounterAIncrements) {
           teamAPoint = BlocProvider.of<CounterCubit>(context).teamAPoint;
-        } else {
+        } else if (state is CounterBIncrements) {
           teamBPoint = BlocProvider.of<CounterCubit>(context).teamBPoint;
+        } else if (state is CounterReset) {
+          teamAPoint = 0;
+          teamBPoint = 0;
+          setState(() {}); // نعمل تحديث للواجهة
         }
       },
       builder: (context, state) {
@@ -64,7 +68,7 @@ class _HomePageState extends State<HomePage> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
       onPressed: () {
-        // teamAPoint =
+        BlocProvider.of<CounterCubit>(context).counterReset();
       },
       child: const Text(
         'Reset',
