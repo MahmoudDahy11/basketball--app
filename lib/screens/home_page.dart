@@ -63,7 +63,9 @@ class _HomePageState extends State<HomePage> {
   ElevatedButton ResetButton() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-      onPressed: () {},
+      onPressed: () {
+        // teamAPoint =
+      },
       child: const Text(
         'Reset',
         style: TextStyle(
@@ -117,27 +119,36 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
-
   // ✅ Buttons Builder
   List<Widget> buildPointButtons({required bool isTeamA}) {
     return [
       ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
         onPressed: () {
-          BlocProvider.of<CounterCubit>(
-            context,
-          ).teamIncrement(team: 'A', bottonNumber: 1);
+          if (isTeamA) {
+            BlocProvider.of<CounterCubit>(
+              context,
+            ).teamIncrement(team: 'A', bottonNumber: 1);
+          } else {
+            BlocProvider.of<CounterCubit>(
+              context,
+            ).teamIncrement(team: 'B', bottonNumber: 1);
+          }
         },
         child: const Text('Add 1 Point', style: TextStyle(color: Colors.black)),
       ),
       ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
         onPressed: () {
-          BlocProvider.of<CounterCubit>(
-            context,
-          ).teamIncrement(team: 'A', bottonNumber: 2);
+          if (isTeamA) {
+            BlocProvider.of<CounterCubit>(
+              context,
+            ).teamIncrement(team: 'A', bottonNumber: 2);
+          } else {
+            BlocProvider.of<CounterCubit>(
+              context,
+            ).teamIncrement(team: 'B', bottonNumber: 2);
+          }
         },
         child: const Text('Add 2 Point', style: TextStyle(color: Colors.black)),
       ),
@@ -146,10 +157,13 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           setState(() {
             if (isTeamA) {
-            } else {
               BlocProvider.of<CounterCubit>(
                 context,
               ).teamIncrement(team: 'A', bottonNumber: 3);
+            } else {
+              BlocProvider.of<CounterCubit>(
+                context,
+              ).teamIncrement(team: 'B', bottonNumber: 3);
             }
           });
         },
